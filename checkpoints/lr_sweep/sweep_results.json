@@ -1,0 +1,67 @@
+{
+  "results": [
+    {
+      "lr": 3e-05,
+      "final_val_loss": 6.448956918716431,
+      "best_val_loss": 6.448956918716431,
+      "final_train_loss": 6.454039132595062,
+      "peak_gpu_memory_mb": 4534,
+      "wall_time": 234.03751707077026,
+      "tokens_per_second": 629492.7832252238
+    },
+    {
+      "lr": 0.0001,
+      "final_val_loss": 4.4778307437896725,
+      "best_val_loss": 4.4778307437896725,
+      "final_train_loss": 4.482805252075195,
+      "peak_gpu_memory_mb": 4534,
+      "wall_time": 232.1231188774109,
+      "tokens_per_second": 634684.4239922754
+    },
+    {
+      "lr": 0.0003,
+      "final_val_loss": 2.3798738360404967,
+      "best_val_loss": 2.3798738360404967,
+      "final_train_loss": 2.392193427681923,
+      "peak_gpu_memory_mb": 4534,
+      "wall_time": 231.59351706504822,
+      "tokens_per_second": 636135.8032255303
+    },
+    {
+      "lr": 0.001,
+      "final_val_loss": 1.985534119606018,
+      "best_val_loss": 1.985534119606018,
+      "final_train_loss": 2.0025600865483284,
+      "wall_time": 231.73380398750305,
+      "tokens_per_second": 635750.6995740032
+    },
+    {
+      "lr": 0.003,
+      "final_val_loss": 1.698331093788147,
+      "best_val_loss": 1.698331093788147,
+      "final_train_loss": 1.7166583478450774,
+      "peak_gpu_memory_mb": 4534,
+      "wall_time": 231.5277042388916,
+      "tokens_per_second": 636316.6277845924
+    },
+    {
+      "lr": 0.01,
+      "final_val_loss": 1.9434650838375092,
+      "best_val_loss": 1.9434650838375092,
+      "final_train_loss": 1.9384991347789764,
+      "peak_gpu_memory_mb": 4534,
+      "wall_time": 231.50093054771423,
+      "tokens_per_second": 636390.219475317
+    },
+    {
+      "lr": 0.03,
+      "final_val_loss": 2.0959728002548217,
+      "best_val_loss": 2.0959728002548217,
+      "final_train_loss": 2.10551156103611,
+      "peak_gpu_memory_mb": 4534,
+      "wall_time": 231.67701125144958,
+      "tokens_per_second": 635906.5459459919
+    }
+  ],
+  "best_lr": 0.003
+}
