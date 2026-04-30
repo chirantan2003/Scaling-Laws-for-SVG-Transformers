@@ -136,9 +136,9 @@ class GPTConfig:
 MODEL_CONFIGS = {
     "tiny": GPTConfig(n_layer=4, n_head=4, n_embd=128, d_ff=512),
     "small": GPTConfig(n_layer=6, n_head=6, n_embd=192, d_ff=768),
-    "medium": GPTConfig(n_layer=4, n_head=6, n_embd=384, d_ff=1536),
-    "large": GPTConfig(n_layer=6, n_head=8, n_embd=512, d_ff=2048),
-    "xl": GPTConfig(n_layer=6, n_head=12, n_embd=768, d_ff=3072),
+    "medium": GPTConfig(n_layer=6, n_head=6, n_embd=384, d_ff=1536),
+    "large": GPTConfig(n_layer=10, n_head=8, n_embd=512, d_ff=2048),
+    "xl": GPTConfig(n_layer=12, n_head=12, n_embd=768, d_ff=3072),
 }
 
 
@@ -231,16 +231,30 @@ class GPT(nn.Module):
         return optimizer
 
     @torch.no_grad()
-    def generate(self, idx, max_new_tokens, temperature=1.0, top_k=None):
-        """Autoregressive generation."""
-        # [From nanoGPT — unchanged]
+    def generate(self, idx, max_new_tokens, temperature=1.0, top_k=None, top_p=None):
+        """Autoregressive generation with optional top-k and top-p sampling."""
         for _ in range(max_new_tokens):
             idx_cond = idx if idx.size(1) <= self.config.block_size else idx[:, -self.config.block_size:]
             logits, _ = self(idx_cond)
             logits = logits[:, -1, :] / temperature
+            
             if top_k is not None:
                 v, _ = torch.topk(logits, min(top_k, logits.size(-1)))
                 logits[logits < v[:, [-1]]] = -float('Inf')
+                
+            if top_p is not None:
+                sorted_logits, sorted_indices = torch.sort(logits, descending=True)
+                cumulative_probs = torch.cumsum(F.softmax(sorted_logits, dim=-1), dim=-1)
+                
+                # Remove tokens with cumulative probability above the threshold
+                sorted_indices_to_remove = cumulative_probs > top_p
+                # Shift the indices to the right to keep also the first token above the threshold
+                sorted_indices_to_remove[..., 1:] = sorted_indices_to_remove[..., :-1].clone()
+                sorted_indices_to_remove[..., 0] = 0
+                
+                indices_to_remove = sorted_indices_to_remove.scatter(1, sorted_indices, sorted_indices_to_remove)
+                logits[indices_to_remove] = -float('Inf')
+                
             probs = F.softmax(logits, dim=-1)
             idx_next = torch.multinomial(probs, num_samples=1)
             idx = torch.cat((idx, idx_next), dim=1)
