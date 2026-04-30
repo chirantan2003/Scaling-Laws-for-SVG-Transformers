@@ -1,17 +1,3 @@
-<style>
-body { font-family: 'Times New Roman', Times, serif; text-align: justify; font-size: 11pt; line-height: 1.4; }
-h1 { text-align: center; font-size: 16pt; }
-h2 { font-size: 14pt; }
-h3 { font-size: 12pt; }
-table { font-size: 10pt; width: 100%; border-collapse: collapse; margin: 6px 0; }
-th, td { padding: 3px 6px; border: 1px solid #ccc; }
-img { max-width: 70%; display: block; margin: 8px auto; }
-p { margin: 4px 0; }
-code { font-size: 10pt; }
-.side-by-side { display: flex; gap: 2%; justify-content: center; align-items: center; }
-.side-by-side img { max-width: 49%; flex: 1; }
-</style>
-
 # Scaling Laws for SVG Transformers: A Study of Standard and µP Parameterization
 
 ## 1. Introduction
@@ -75,7 +61,7 @@ The following examples show cleaned SVGs at different complexity percentiles, il
 | P75 (Complex) | svg-icons-simple | 1,396 | Icon with 3 overlapping paths, detailed shape |
 | P90 (Very Complex) | svg-icons-simple | 2,593 | Complex icon, 10 paths with fine details |
 
-Example SVG files are rendered in `data/stats/examples/` and can be viewed in any browser.
+Example SVG files are added in Appendix A.
 
 ---
 
@@ -288,7 +274,19 @@ We conducted a comprehensive study of scaling laws for SVG transformers, trainin
 
 ---
 
-## Appendix A: Additional Generated SVGs
+## Appendix A: Rendered SVG Examples
+<div class="side-by-side">
+<img src="data/stats/examples/example_p10.png" alt="Example p10">
+<img src="data/stats/examples/example_p25.png" alt="Example p25">
+<img src="data/stats/examples/example_p50.png" alt="Example p50">
+</div>
+
+<div class="side-by-side">
+<img src="data/stats/examples/example_p75.png" alt="Example p75">
+<img src="data/stats/examples/example_p90.png" alt="Example p90">
+</div>
+
+## Appendix B: Additional Generated SVGs
 
 Individual rendered samples from unconditional generation:
 
