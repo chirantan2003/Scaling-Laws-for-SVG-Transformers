@@ -1,0 +1,170 @@
+[
+  {
+    "type": "unconditional",
+    "id": 1,
+    "file": "unconditional_1.svg",
+    "prompt": "<svg",
+    "temperature": 0.8,
+    "top_p": 0.95
+  },
+  {
+    "type": "unconditional",
+    "id": 2,
+    "file": "unconditional_2.svg",
+    "prompt": "<svg",
+    "temperature": 0.8,
+    "top_p": 0.95
+  },
+  {
+    "type": "unconditional",
+    "id": 3,
+    "file": "unconditional_3.svg",
+    "prompt": "<svg",
+    "temperature": 0.8,
+    "top_p": 0.95
+  },
+  {
+    "type": "unconditional",
+    "id": 4,
+    "file": "unconditional_4.svg",
+    "prompt": "<svg",
+    "temperature": 0.8,
+    "top_p": 0.95
+  },
+  {
+    "type": "unconditional",
+    "id": 5,
+    "file": "unconditional_5.svg",
+    "prompt": "<svg",
+    "temperature": 0.8,
+    "top_p": 0.95
+  },
+  {
+    "type": "unconditional",
+    "id": 6,
+    "file": "unconditional_6.svg",
+    "prompt": "<svg",
+    "temperature": 0.8,
+    "top_p": 0.95
+  },
+  {
+    "type": "unconditional",
+    "id": 7,
+    "file": "unconditional_7.svg",
+    "prompt": "<svg",
+    "temperature": 0.8,
+    "top_p": 0.95
+  },
+  {
+    "type": "unconditional",
+    "id": 8,
+    "file": "unconditional_8.svg",
+    "prompt": "<svg",
+    "temperature": 0.8,
+    "top_p": 0.95
+  },
+  {
+    "type": "unconditional",
+    "id": 9,
+    "file": "unconditional_9.svg",
+    "prompt": "<svg",
+    "temperature": 0.8,
+    "top_p": 0.95
+  },
+  {
+    "type": "unconditional",
+    "id": 10,
+    "file": "unconditional_10.svg",
+    "prompt": "<svg",
+    "temperature": 0.8,
+    "top_p": 0.95
+  },
+  {
+    "type": "prefix",
+    "id": "partial_face",
+    "file": "prefix_partial_face.svg",
+    "prompt": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\">\n<circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"yellow\" />\n<circle cx=\"35\" cy=\"35\" r=\"5\" fill=\"black\" />\n",
+    "temperature": 0.8,
+    "top_p": 0.95
+  },
+  {
+    "type": "prefix",
+    "id": "open_path",
+    "file": "prefix_open_path.svg",
+    "prompt": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\">\n<path d=\"M20,20 L80,20 L80,80\" stroke=\"black\" stroke-width=\"5\" fill=\"none\"",
+    "temperature": 0.8,
+    "top_p": 0.95
+  },
+  {
+    "type": "prefix",
+    "id": "group_shapes",
+    "file": "prefix_group_shapes.svg",
+    "prompt": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\">\n<g fill=\"blue\">\n<rect x=\"10\" y=\"10\" width=\"20\" height=\"20\" />\n",
+    "temperature": 0.8,
+    "top_p": 0.95
+  },
+  {
+    "type": "prefix",
+    "id": "color_theme",
+    "file": "prefix_color_theme.svg",
+    "prompt": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">\n<rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" fill=\"#FF5733\" />\n<circle cx=\"12\" cy=\"12\" r=\"5\" fill=\"#FFC300\" />\n",
+    "temperature": 0.8,
+    "top_p": 0.95
+  },
+  {
+    "type": "prefix",
+    "id": "icon_skeleton",
+    "file": "prefix_icon_skeleton.svg",
+    "prompt": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">\n<path d=\"M256,0 C114.6,0 0,114.6 0,256",
+    "temperature": 0.8,
+    "top_p": 0.95
+  },
+  {
+    "type": "temperature",
+    "id": "0.5",
+    "file": "temp_0.5.svg",
+    "prompt": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">\n<path d=\"",
+    "temperature": 0.5,
+    "top_p": 0.95
+  },
+  {
+    "type": "temperature",
+    "id": "0.8",
+    "file": "temp_0.8.svg",
+    "prompt": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">\n<path d=\"",
+    "temperature": 0.8,
+    "top_p": 0.95
+  },
+  {
+    "type": "temperature",
+    "id": "1.0",
+    "file": "temp_1.0.svg",
+    "prompt": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">\n<path d=\"",
+    "temperature": 1.0,
+    "top_p": 0.95
+  },
+  {
+    "type": "top_k",
+    "id": "10",
+    "file": "topk_10.svg",
+    "prompt": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">\n<path d=\"",
+    "temperature": 0.8,
+    "top_k": 10
+  },
+  {
+    "type": "top_k",
+    "id": "50",
+    "file": "topk_50.svg",
+    "prompt": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">\n<path d=\"",
+    "temperature": 0.8,
+    "top_k": 50
+  },
+  {
+    "type": "top_k",
+    "id": "100",
+    "file": "topk_100.svg",
+    "prompt": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">\n<path d=\"",
+    "temperature": 0.8,
+    "top_k": 100
+  }
+]
