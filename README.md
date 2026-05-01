@@ -2,7 +2,7 @@
 
 A comprehensive study of neural scaling laws applied to SVG (Scalable Vector Graphics) generation using decoder-only GPT-style transformers. We train a family of 5 models (1.3M to 88M parameters), compare Standard Parameterization (SP) vs Maximal Update Parameterization (µP), and evaluate a best model on unconditional and conditional SVG generation.
 
-For a detailed analysis of the results, architectures, and findings, please read the Final Report [FINAL_REPORT.md].
+For a detailed analysis of the results, architectures, and findings, please read the Final Report [FINAL_REPORT.md](FINAL_REPORT.md).
 
 ---
 
