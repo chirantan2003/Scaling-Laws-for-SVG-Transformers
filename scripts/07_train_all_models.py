@@ -1,9 +1,3 @@
-"""
-Step 7: Train all 5 model sizes for the scaling study.
-
-Uses the best learning rate from the LR sweep (step 6).
-Trains each model for exactly 1 epoch and records metrics.
-"""
 import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

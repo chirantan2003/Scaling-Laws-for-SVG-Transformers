@@ -1,9 +1,3 @@
-"""
-Step 10: Train all 5 muP model sizes for the scaling study.
-
-Uses the best learning rate from the muP LR sweep (step 9).
-Trains each model for exactly 1 epoch.
-"""
 import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -74,7 +68,7 @@ def main():
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
 
-    # ---- Summary ----
+    # Summary
     print(f"\n{'='*60}")
     print(f"ALL muP MODELS TRAINED")
     print(f"{'='*60}")

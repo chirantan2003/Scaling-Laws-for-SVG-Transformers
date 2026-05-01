@@ -1,15 +1,3 @@
-"""
-Core training loop for GPT models on SVG data.
-
-Supports:
-  - Memory-mapped data loading from numpy arrays
-  - Cosine LR schedule with linear warmup
-  - Mixed precision (bfloat16) training
-  - Gradient accumulation for large effective batch sizes
-  - Periodic validation evaluation
-  - Metrics tracking (loss, time, memory, throughput)
-"""
-
 import os
 import sys
 import time

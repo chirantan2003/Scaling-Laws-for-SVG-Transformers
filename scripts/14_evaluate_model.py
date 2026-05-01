@@ -1,9 +1,3 @@
-"""
-Step 14: Evaluate Model (Part 4)
-
-Calculates test perplexity and evaluates the generated SVG samples
-for XML validity, structural validity, and renderability (via CairoSVG).
-"""
 import sys, os, json, time, re, threading
 import numpy as np
 import torch
@@ -42,14 +36,6 @@ def _render_with_timeout(svg_bytes, png_path, timeout=10):
 
 
 def _clean_svg(raw):
-    """Try to produce a well-formed SVG from potentially truncated model output.
-
-    Strategy:
-      1. If the raw text already has </svg>, take everything up to and including
-         the LAST </svg>.
-      2. Otherwise, truncate at the last fully-closed tag (/>  or </…>),
-         then append </svg>.
-    """
     raw = raw.strip()
 
     # Case 1: already has a closing </svg>

@@ -1,16 +1,3 @@
-"""
-Step 2: Clean and normalize SVG files.
-
-Applies the full cleaning pipeline:
-- Parse as XML, strip comments
-- Remove metadata, editor namespaces
-- Normalize whitespace and coordinate precision
-- Canonicalize attribute ordering
-- Filter by min length (<50 chars)
-- Filter by top 1 percentile of largest SVGs
-- Re-validate XML
-- Produce a manifest CSV
-"""
 import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -92,9 +79,7 @@ def main():
     
     config.CLEANED_DIR.mkdir(parents=True, exist_ok=True)
     
-    # ================================================================
     # PASS 1: Clean all SVGs, collect results in memory
-    # ================================================================
     print(f"\n--- PASS 1: Cleaning & Normalizing ---")
     num_workers = min(os.cpu_count() or 4, 8)
     print(f"  Processing with {num_workers} workers...")
@@ -150,9 +135,7 @@ def main():
         snippet = ex["cleaned_svg"][:120] + "..."
         print(f"      Preview:  {snippet}")
     
-    # ================================================================
     # PASS 2: Percentile-based filtering
-    # ================================================================
     print(f"\n--- PASS 2: Percentile-Based Filtering ---")
     
     cleaned_lengths = np.array([r["cleaned_length"] for r in all_results])
@@ -204,18 +187,12 @@ def main():
     print(f"    Rejected (too short): {pass2_reasons.get('too_short', 0):,}")
     print(f"    Rejected (top 1%):    {pass2_reasons.get('top_1pct', 0):,}")
     
-    # ================================================================
-    # SAVE: Write accepted SVGs to disk
-    # ================================================================
     print(f"\n--- Saving cleaned SVGs ---")
     for result in tqdm(accepted_results, desc="  Saving", unit="svg"):
         out_name = f"{result['source_dataset']}_{result['filename']}"
         out_path = config.CLEANED_DIR / out_name
         out_path.write_text(result["cleaned_svg"], encoding="utf-8")
     
-    # ================================================================
-    # MANIFEST: Save manifest CSV (all results including rejected)
-    # ================================================================
     manifest_path = config.CLEANED_DIR / "manifest.csv"
     all_manifest_entries = []
     for r in all_results:
@@ -229,9 +206,6 @@ def main():
             writer.writeheader()
             writer.writerows(all_manifest_entries)
     
-    # ================================================================
-    # VALIDATION: Verify all saved SVGs are valid XML
-    # ================================================================
     print(f"\n--- Validating saved SVGs ---")
     from utils.svg_utils import validate_xml
     saved_files = list(config.CLEANED_DIR.glob("*.svg"))
@@ -251,9 +225,6 @@ def main():
         except Exception:
             invalid_count += 1
     
-    # ================================================================
-    # SUMMARY
-    # ================================================================
     total_rejected = pass1_rejected + pass2_rejected
     total_accepted = len(accepted_results)
     

@@ -1,12 +1,3 @@
-"""
-Training loop for µP GPT models on SVG data.
-
-Same structure as train.py but uses:
-  - MuGPT model via create_mup_model()
-  - MuAdamW optimizer (auto-scales LR per layer by width)
-  - Relative LR scheduling (multiply, not set) per mup docs
-"""
-
 import os
 import sys
 import time

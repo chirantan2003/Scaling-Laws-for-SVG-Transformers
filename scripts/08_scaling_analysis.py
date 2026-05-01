@@ -1,11 +1,3 @@
-"""
-Step 8: Scaling Analysis — fit power law and generate plots.
-
-Creates:
-  - Scaling plot (params vs val loss) with power law fit
-  - Training loss curves for all models
-  - Model summary table
-"""
 import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -52,9 +44,7 @@ def main():
     params = params[sort_idx]
     val_losses = val_losses[sort_idx]
 
-    # ================================================================
     # 1. Fit Power Law: L = a * N^(-alpha) + c
-    # ================================================================
     print(f"\n  Fitting power law: L = a * N^(-alpha) + c")
 
     try:
@@ -85,9 +75,7 @@ def main():
         print(f"  Falling back to log-linear fit")
         fit_success = False
 
-    # ================================================================
     # 2. Scaling Plot
-    # ================================================================
     print(f"\n  Creating scaling plot...")
 
     fig, ax = plt.subplots(figsize=(10, 7))
@@ -121,9 +109,7 @@ def main():
     plt.close()
     print(f"  Saved: {plot_path}")
 
-    # ================================================================
     # 3. Training Loss Curves (overlaid)
-    # ================================================================
     print(f"  Creating training curves plot...")
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 6))
@@ -161,9 +147,7 @@ def main():
     plt.close()
     print(f"  Saved: {curves_path}")
 
-    # ================================================================
     # 4. Summary Table (Markdown)
-    # ================================================================
     print(f"\n  Generating summary table...")
 
     md_lines = ["# Part 2: Model Architectures and Training Statistics\n"]
@@ -199,9 +183,7 @@ def main():
         f.write('\n'.join(md_lines))
     print(f"  Saved: {table_path}")
 
-    # ================================================================
     # 5. Final Summary
-    # ================================================================
     print(f"\n{'='*60}")
     print(f"SCALING ANALYSIS COMPLETE")
     print(f"{'='*60}")

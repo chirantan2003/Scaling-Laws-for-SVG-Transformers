@@ -1,8 +1,3 @@
-"""
-Step 3: Train a BPE tokenizer on the cleaned SVG corpus.
-
-Uses HuggingFace tokenizers library with ByteLevel BPE.
-"""
 import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -45,7 +40,6 @@ def main():
     tokenizer.decoder = decoders.ByteLevel()
     
     # Post-processor: add <bos> and <eos> tokens
-    # We'll handle this manually during tokenization for more control
     
     # Trainer
     trainer = trainers.BpeTrainer(

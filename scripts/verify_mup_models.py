@@ -1,4 +1,3 @@
-"""Quick verification: instantiate all muP models and check param counts + forward pass."""
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 

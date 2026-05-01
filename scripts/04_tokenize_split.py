@@ -1,7 +1,3 @@
-"""
-Step 4: Tokenize the cleaned SVG corpus, filter by sequence length,
-and create train/val/test splits.
-"""
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 

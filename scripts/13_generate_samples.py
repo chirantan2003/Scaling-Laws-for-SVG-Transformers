@@ -1,9 +1,3 @@
-"""
-Step 13: Generate SVG Samples (Part 4)
-
-Loads the best trained model (SP Large) and generates SVGs using autoregressive sampling.
-Produces unconditional samples and prefix-conditioned samples at various temperatures.
-"""
 import sys, os, json
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -68,7 +62,7 @@ def main():
     
     samples_record = []
     
-    # --- 1. Unconditional Samples ---
+    # 1. Unconditional Samples
     print("\nGenerating Unconditional Samples (prefix = '<svg')...")
     prefix = "<svg"
     for i in range(10):
@@ -78,7 +72,7 @@ def main():
         with open(path, "w") as f: f.write(svg_code)
         samples_record.append({"type": "unconditional", "id": i+1, "file": path.name, "prompt": prefix, "temperature": 0.8, "top_p": 0.95})
         
-    # --- 2. Prefix-Conditioned Samples ---
+    # 2. Prefix-Conditioned Samples
     print("\nGenerating Prefix-Conditioned Samples...")
     
     prefixes = [
@@ -106,7 +100,7 @@ def main():
             
         samples_record.append({"type": "prefix", "id": p['name'], "file": path.name, "prompt": p['prompt'], "temperature": 0.8, "top_p": 0.95})
 
-    # --- 3. Temperature / Sampling Tests ---
+    # 3. Temperature / Sampling Tests
     print("\nGenerating Temperature Tests...")
     prompt = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\n<path d="'
     

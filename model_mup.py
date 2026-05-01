@@ -7,10 +7,6 @@ Adapted from model.py (standard parameterization) with the following µP changes
   3. Query weights initialized to zero
   4. Hidden weights use fan-in scaled initialization
   5. Optimizer uses MuAdamW for automatic per-layer LR scaling
-
-Reference: Yang et al. (2022), "Tensor Programs V: Tuning Large Neural
-Networks via Zero-Shot Hyperparameter Transfer"
-https://arxiv.org/abs/2203.09789
 """
 
 import math

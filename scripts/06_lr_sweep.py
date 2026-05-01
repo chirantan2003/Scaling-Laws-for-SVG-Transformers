@@ -1,9 +1,3 @@
-"""
-Step 6: Learning Rate Sweep on the Tiny model.
-
-Tests 7 learning rates on a log scale, trains for 1 epoch each,
-and selects the best LR based on final validation loss.
-"""
 import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -103,8 +97,7 @@ def main():
     plt.close()
     print(f"  Plot saved to: {plot_path}")
 
-    # ---- Also plot training curves for all LRs ----
-    # (We'd need to save per-step losses for this — done via metrics)
+    # Plot training curves for all LRs
 
     print(f"\n  Results saved to: {results_path}")
     print(f"  Use best_lr = {best_lr} for all subsequent training runs.")

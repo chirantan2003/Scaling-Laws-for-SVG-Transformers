@@ -1,9 +1,3 @@
-"""
-Step 1: Download SVG datasets from HuggingFace.
-
-Downloads the configured datasets, extracts SVG code, and saves
-each SVG as an individual file in data/raw/{dataset_name}/.
-"""
 import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

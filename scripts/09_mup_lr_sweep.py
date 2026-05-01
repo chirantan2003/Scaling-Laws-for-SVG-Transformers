@@ -1,9 +1,3 @@
-"""
-Step 9: Learning Rate Sweep on the Tiny muP model.
-
-Tests 7 learning rates on a log scale (shifted higher than SP,
-since muP typically allows larger LRs).
-"""
 import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

@@ -1,12 +1,3 @@
-"""
-Step 11: Compare SP vs muP scaling + Extrapolation analysis.
-
-Creates:
-  - Dual scaling plot (SP vs muP on same axes)
-  - LR sweep comparison
-  - Power law fits for both
-  - Scaling law extrapolation with confidence intervals
-"""
 import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -95,9 +86,7 @@ def main():
     sp_fit, sp_ok = fit_power_law(sp_params, sp_losses, "SP")
     mup_fit, mup_ok = fit_power_law(mup_params, mup_losses, "muP")
 
-    # ================================================================
     # PLOT 1: Dual Scaling Plot (SP vs muP)
-    # ================================================================
     print(f"\n  Creating dual scaling plot...")
     fig, ax = plt.subplots(figsize=(10, 7))
 
@@ -139,9 +128,7 @@ def main():
     plt.close()
     print(f"  Saved: sp_vs_mup_scaling.png")
 
-    # ================================================================
     # PLOT 2: LR Sweep Comparison
-    # ================================================================
     print(f"  Creating LR sweep comparison...")
     sp_sweep_path = Path("checkpoints/lr_sweep/sweep_results.json")
     mup_sweep_path = Path("checkpoints/mup_lr_sweep/sweep_results.json")
@@ -175,9 +162,7 @@ def main():
     plt.close()
     print(f"  Saved: lr_sweep_comparison.png")
 
-    # ================================================================
     # PLOT 3: Training Curves Comparison
-    # ================================================================
     print(f"  Creating training curves comparison...")
     fig, axes = plt.subplots(1, 2, figsize=(16, 6))
     colors = ['#4CAF50', '#2196F3', '#FF9800', '#E53935', '#9C27B0']
@@ -214,9 +199,7 @@ def main():
     plt.close()
     print(f"  Saved: training_curves_comparison.png")
 
-    # ================================================================
     # PLOT 4: Per-Model SP vs muP Bar Chart
-    # ================================================================
     print(f"  Creating per-model comparison bar chart...")
     fig, ax = plt.subplots(figsize=(10, 6))
     x = np.arange(len(sp_names))
@@ -246,9 +229,7 @@ def main():
     plt.close()
     print(f"  Saved: per_model_comparison.png")
 
-    # ================================================================
     # SCALING LAW EXTRAPOLATION
-    # ================================================================
     print(f"\n{'='*60}")
     print(f"SCALING LAW EXTRAPOLATION")
     print(f"{'='*60}")
@@ -303,7 +284,7 @@ def main():
     print(f"    5x ({target_5x/1e6:.1f}M): {pred_5x:.4f}")
     print(f"   10x ({target_10x/1e6:.1f}M): {predicted_loss:.4f}")
 
-    # ---- Extrapolation Plot ----
+    # Extrapolation Plot
     print(f"\n  Creating extrapolation plot...")
     fig, ax = plt.subplots(figsize=(10, 7))
 
@@ -355,9 +336,7 @@ def main():
     plt.close()
     print(f"  Saved: extrapolation_plot.png")
 
-    # ================================================================
     # SAVE SUMMARY
-    # ================================================================
     summary = {
         "sp_fit": sp_fit if sp_ok else None,
         "mup_fit": mup_fit if mup_ok else None,
@@ -379,7 +358,7 @@ def main():
     with open(out_dir / "comparison_summary.json", 'w') as f:
         json.dump(summary, f, indent=2)
 
-    # ---- Print final comparison table ----
+    # Print final comparison table
     print(f"\n{'='*60}")
     print(f"SP vs muP COMPARISON")
     print(f"{'='*60}")

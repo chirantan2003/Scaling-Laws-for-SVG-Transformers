@@ -1,4 +1,3 @@
-"""Quick verification: instantiate all models and print param counts."""
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
